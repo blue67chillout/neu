@@ -27,9 +27,9 @@ module user_proj_example #(
     input  [127:0] la_oenb,
 
     // IOs
-    input  [15:0] io_in,
+    input  [8:0] io_in,
     output [8:0] io_out,
-    output [24:0] io_oeb,
+    output [8:0] io_oeb,
 
     // IRQ
     output [2:0] irq        
@@ -41,8 +41,8 @@ module user_proj_example #(
     wire [9:0] rdata;
 
     assign io_out = sum;
-    assign io_eb = {{9{1'b0}},{16{1'b1}}}
-   
+  //  assign io_eb = {{9{1'b0}},{16{1'b1}}}
+   assign io_eb = 9'd0;
     assign wsb = wbs_sel_i & {4{wbs_we_i}};
     assign wbs_dat_o = {{(23){1'b0}}, rdata};
     
